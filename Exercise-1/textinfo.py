@@ -1,5 +1,6 @@
-
-with open("gettysburg.txt", "r") as file:
+textfile = input("Enter the name of text file: ")
+print(f"Statistics for file {textfile}:")
+with open(textfile, "r") as file:
   file = file.read()
   characters = 0
   uppers = 0
