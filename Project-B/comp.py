@@ -50,10 +50,7 @@ def main():
   #pairs of names of suppliers located in the same city
   print({(supplier1.sname,supplier2.sname) for supplier1 in suppliers for supplier2 in suppliers if supplier1.city == supplier2.city if supplier1.sname < supplier2.sname})
   #all suppliers by city (use dictionary)
-  citydict = {"Paris":"","Athens":"","London":""}
-  citydict["Paris"] = {supplier.sname for supplier in suppliers if supplier.city == "Paris"}
-  citydict["Athens"] = {supplier.sname for supplier in suppliers if supplier.city == "Athens"}
-  citydict["London"] = {supplier.sname for supplier in suppliers if supplier.city == "London"}
+  citydict = {"Paris":{supplier.sname for supplier in suppliers if supplier.city == "Paris"},"Athens":{supplier.sname for supplier in suppliers if supplier.city == "Athens"},"London":{supplier.sname for supplier in suppliers if supplier.city == "London"}}
   print(citydict)
   
 if __name__ == "__main__":
