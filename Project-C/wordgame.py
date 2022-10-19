@@ -1,4 +1,5 @@
 from random import choice, shuffle
+import sys
 
 def is_subword(word, subword):
   clist = []
@@ -27,7 +28,6 @@ def show_answers(answersdict):
   for value in answersdict.values():
     print(value)
   
-
 def main():
   user = input("Enter the range of word lengths (low,high): ")
   user = user.split(",")
@@ -43,9 +43,14 @@ def main():
         rangedwords += [word]
         if len(word) == therange[-1]:
           choices += [word]
-  theword = choice(choices)
+  #see if there was a system arg
+  if len(sys.argv) == 1:
+    theword = choice(choices)
+  else:
+    theword = sys.argv[1]
   answerdict = {}
   gamedict = {}
+  #compile answer key and display dictionaries for the game
   for word in rangedwords:
     if is_subword(theword, word):
       if len(word) in answerdict.keys():
@@ -54,6 +59,9 @@ def main():
       else:
         answerdict[len(word)] = [word]
         gamedict[len(word)] = ["-"*len(word)]
+  answerdict = dict(sorted(answerdict.items()))
+  gamedict = dict(sorted(gamedict.items()))
+  #play ball!
   while notgameover(gamedict):
     gamestring = f"{shuffleword(theword)}:\n\n"
     for value in gamedict.values():
@@ -62,7 +70,6 @@ def main():
     guess = input("Enter a guess: ")
     verdict = "Sorry. Try again."
     if guess == "q":
-      show_answers(answerdict)
       break
     for value in answerdict.values():
       if guess in value:
@@ -73,9 +80,7 @@ def main():
           index = value.index(guess)
           gamedict[len(guess)][index] = guess
     print(verdict)
-    show_answers(answerdict)
-  
-  
+  show_answers(answerdict)
+
 if __name__ == "__main__":
   main()
-  
