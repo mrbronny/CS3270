@@ -1,0 +1,59 @@
+~/CS-3270/Project-C$ python3 wordgame.py
+Enter the range of word lengths (low,high): 3,6
+oosehv:
+
+['---', '---', '---', '---', '---', '---', '---']
+['----', '----', '----', '----', '----', '----']
+['-----']
+['------']
+
+Enter a guess: hooves
+Correct!
+ovsoeh:
+
+['---', '---', '---', '---', '---', '---', '---']
+['----', '----', '----', '----', '----', '----']
+['-----']
+['hooves']
+
+Enter a guess: shove
+Correct!
+oehvso:
+
+['---', '---', '---', '---', '---', '---', '---']
+['----', '----', '----', '----', '----', '----']
+['shove']
+['hooves']
+
+Enter a guess: shov
+Sorry. Try again.
+hsoove:
+
+['---', '---', '---', '---', '---', '---', '---']
+['----', '----', '----', '----', '----', '----']
+['shove']
+['hooves']
+
+Enter a guess: hoe
+Correct!
+seohov:
+
+['---', 'hoe', '---', '---', '---', '---', '---']
+['----', '----', '----', '----', '----', '----']
+['shove']
+['hooves']
+
+Enter a guess: hoes
+Correct!
+oevsoh:
+
+['---', 'hoe', '---', '---', '---', '---', '---']
+['hoes', '----', '----', '----', '----', '----']
+['shove']
+['hooves']
+
+Enter a guess: q
+['hes', 'hoe', 'hos', 'oho', 'ohs', 'ooh', 'she']
+['hoes', 'hose', 'hove', 'oohs', 'shoe', 'shoo']
+['shove']
+['hooves']

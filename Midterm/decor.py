@@ -10,5 +10,7 @@ def decorator(func):
 def multiply(num1, num2):
   return num1*num2
 
-print(multiply(2,2))
+#print(multiply(2,2))
 #5
+
+print(1 in {1:"a"})
